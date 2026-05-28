@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover"
     />
-    <title>QR MENUS · award-winning portfolio</title>
+    <title>QR MENUS · portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -27,23 +27,19 @@
         color: #493f55;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+        width: 100%;
       }
 
-      /* —— 4-COLUMN MASTER GRID —— */
+      /* —— 4-COLUMN MASTER GRID (Desktop) —— */
       .master-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(4, 1fr);
         column-gap: 20px;
-        padding: 0 4vw;
-        max-width: 100%;
+        padding: 0 2vw;
         margin: 0 auto;
         position: relative;
-      }
-
-      /* All sections are direct children of master-grid */
-      .section-full {
-        grid-column: 1 / -1;
-        display: contents; /* allows children to participate in master grid */
+        width: 100%;
       }
 
       /* Typography */
@@ -85,8 +81,7 @@
         color: #6d3aff;
       }
 
-      p,
-      .text-paragraph {
+      p {
         font-family: "Manrope", sans-serif;
         font-weight: 400;
         font-size: 13px;
@@ -115,6 +110,9 @@
         text-decoration: none;
         white-space: nowrap;
         line-height: 1;
+        min-height: 48px;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
       }
 
       button:hover,
@@ -123,11 +121,17 @@
         transform: translateY(-2px);
       }
 
+      button:active,
+      .button:active {
+        transform: translateY(0);
+      }
+
       .arrow-icon-left {
         display: inline-block;
         transform: rotate(180deg);
         width: 16px;
         height: 16px;
+        flex-shrink: 0;
       }
 
       /* image placeholder */
@@ -151,7 +155,7 @@
         letter-spacing: 1px;
       }
 
-      /* benefit & pricing cards */
+      /* Cards */
       .cards-container {
         display: flex;
         gap: 20px;
@@ -177,7 +181,7 @@
         line-height: 1.6;
       }
 
-      /* phone mockups */
+      /* Phone mockups */
       .phones-row {
         display: flex;
         gap: 20px;
@@ -195,7 +199,7 @@
       .phone-chassis {
         position: relative;
         width: 100%;
-        max-width: 240px;
+        max-width: 340px;
         aspect-ratio: 9 / 19;
         border-radius: 36px;
         background: #fffbf5;
@@ -231,66 +235,481 @@
         font-weight: 400;
       }
 
-      /* vertical spacing utilities */
-      .mt-40 {
-        margin-top: 40px;
-      }
-      .mt-80 {
-        margin-top: 80px;
-      }
-      .mb-20 {
-        margin-bottom: 20px;
+      /* Utility: spacing */
+      .spacer-80 {
+        grid-column: 1 / -1;
+        height: 80px;
       }
 
-      /* specific grid placements */
-      .col-1 {
-        grid-column: 1 / 2;
+      /* Grid placement classes */
+      .grid-full {
+        grid-column: 1 / -1;
       }
-      .col-2 {
-        grid-column: 2 / 3;
-      }
-      .col-3 {
-        grid-column: 3 / 4;
-      }
-      .col-4 {
-        grid-column: 4 / 5;
-      }
-      .col-1-2 {
+      .grid-1-2 {
         grid-column: 1 / 3;
       }
-      .col-2-4 {
-        grid-column: 2 / 5;
-      }
-      .col-3-4 {
+      .grid-3-4 {
         grid-column: 3 / 5;
       }
-      .col-2-3 {
+      .grid-2-4 {
+        grid-column: 2 / 5;
+      }
+      .grid-2-3 {
         grid-column: 2 / 4;
+      }
+      .grid-2 {
+        grid-column: 2 / 3;
+      }
+
+      /* ======================================== */
+      /*   TABLET: 768px – 1024px (8 columns)     */
+      /* ======================================== */
+      @media screen and (max-width: 1024px) {
+        .master-grid {
+          grid-template-columns: repeat(8, 1fr);
+          column-gap: 16px;
+          padding: 0 3vw;
+        }
+
+        h1 {
+          font-size: 52px;
+          letter-spacing: -0.3px;
+          margin-top: 48px;
+        }
+
+        h2 {
+          font-size: 36px;
+          line-height: 1.1;
+        }
+
+        h3 {
+          font-size: 24px;
+          line-height: 1.25;
+        }
+
+        h4 {
+          font-size: 22px;
+          line-height: 1.25;
+        }
+
+        p {
+          font-size: 13px;
+          line-height: 1.65;
+        }
+
+        button,
+        .button {
+          font-size: 12px;
+          padding: 13px 24px;
+          border-radius: 18px;
+        }
+
+        .card {
+          padding: 16px 14px;
+          gap: 16px;
+          border-radius: 20px;
+        }
+
+        .card h4 {
+          font-size: 20px;
+        }
+
+        .card p {
+          font-size: 12px;
+        }
+
+        .spacer-80 {
+          grid-column: 1 / -1 !important;
+        }
+
+        /* Tablet grid overrides */
+        h1.grid-full {
+          grid-column: 1 / -1 !important;
+        }
+
+        h4.grid-2-4 {
+          grid-column: 3 / 9 !important;
+        }
+
+        .grid-1-2.image-placeholder-parent {
+          grid-column: 1 / 5 !important;
+        }
+
+        .grid-3-4.text-block {
+          grid-column: 5 / 9 !important;
+        }
+
+        .benefits-wrapper.grid-2-4 {
+          grid-column: 3 / 9 !important;
+        }
+
+        h3.grid-1-2 {
+          grid-column: 5 / 9 !important;
+          text-align: left !important;
+        }
+
+        .phones-wrapper .phones-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 24px 16px;
+        }
+
+        .phone-chassis {
+          max-width: 100%;
+        }
+
+        h2.grid-2-3 {
+          grid-column: 3 / 7 !important;
+        }
+
+        .pricing-wrapper.grid-2-4 {
+          grid-column: 3 / 9 !important;
+        }
+
+        .order-btn-wrapper.grid-2 {
+          grid-column: 3 / 5 !important;
+        }
+      }
+
+      /* ======================================== */
+      /*   MOBILE: до 767px — ВСЁ В КОЛОНКУ      */
+      /* ======================================== */
+      @media screen and (max-width: 767px) {
+        .master-grid {
+          grid-template-columns: 1fr;
+          column-gap: 0;
+          padding: 0 24px;
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+        }
+
+        /* Сбрасываем grid-колонки — всё идёт потоком */
+        .grid-full,
+        .grid-1-2,
+        .grid-3-4,
+        .grid-2-4,
+        .grid-2-3,
+        .grid-2,
+        .spacer-80,
+        h1,
+        h2,
+        h3,
+        h4,
+        .image-placeholder-parent,
+        .text-block,
+        .benefits-wrapper,
+        .phones-wrapper,
+        .pricing-wrapper,
+        .order-btn-wrapper {
+          grid-column: auto !important;
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+
+        /* Типографика */
+        h1 {
+          font-size: 42px;
+          line-height: 1.1;
+          margin-top: 48px;
+          margin-bottom: 0;
+          letter-spacing: -0.5px;
+          text-align: left;
+          width: 100%;
+        }
+
+        h2 {
+          font-size: 32px;
+          line-height: 1.15;
+          text-align: left;
+          width: 100%;
+          margin: 0;
+        }
+
+        h2 br {
+          display: none;
+        }
+
+        h3 {
+          font-size: 22px;
+          line-height: 1.25;
+          text-align: left;
+          width: 100%;
+          margin: 0;
+        }
+
+        h4 {
+          font-size: 20px;
+          line-height: 1.3;
+          text-align: left;
+          width: 100%;
+          margin: 0;
+        }
+
+        p {
+          font-size: 14px;
+          line-height: 1.65;
+        }
+
+        /* ОТСТУПЫ МЕЖДУ БЛОКАМИ */
+        h1 {
+          margin-bottom: 24px;
+        }
+
+        h4 {
+          margin-bottom: 32px;
+        }
+
+        .spacer-80 {
+          height: 48px;
+          width: 100%;
+        }
+
+        /* Картинка и текст — чётко друг за другом */
+        .image-placeholder-parent {
+          margin-bottom: 32px;
+          width: 100%;
+        }
+
+        .image-placeholder {
+          aspect-ratio: 16/10;
+          border-radius: 24px;
+          width: 100%;
+        }
+
+        .text-block {
+          width: 100%;
+          margin-bottom: 0;
+        }
+
+        .text-block > div {
+          gap: 16px !important;
+        }
+
+        /* Карточки */
+        .benefits-wrapper {
+          margin-top: 0;
+          width: 100%;
+        }
+
+        .cards-container {
+          flex-direction: column;
+          gap: 16px;
+          width: 100%;
+        }
+
+        .card {
+          flex: none;
+          width: 100%;
+          padding: 20px 16px;
+          gap: 14px;
+          border-radius: 20px;
+        }
+
+        .card h4 {
+          font-size: 22px;
+        }
+
+        .card p {
+          font-size: 14px;
+        }
+
+        /* Заголовок "responsive examples" */
+        h3.grid-1-2 {
+          margin: 0;
+          width: 100%;
+          text-align: left !important;
+        }
+
+        /* Телефоны */
+        .phones-wrapper {
+          width: 100%;
+          margin-top: 0;
+        }
+
+        .phones-row {
+          display: grid;
+          grid-template-columns: 1fr; /* ← ОДНА колонка */
+          gap: 32px;
+          width: 100%;
+        }
+
+        .phone-item {
+          width: 100%;
+          max-width: 320px;
+          margin: 0 auto;
+        }
+
+        .phone-chassis {
+          max-width: 100%;
+          width: 100%;
+        }
+
+        .phone-label {
+          font-size: 12px;
+          letter-spacing: 1.5px;
+        }
+
+        /* Заголовок "order a DIGITAL menu" */
+        h2.grid-2-3 {
+          margin: 0;
+          width: 100%;
+        }
+
+        /* Карточки цен */
+        .pricing-wrapper {
+          width: 100%;
+          margin-top: 0;
+        }
+
+        .pricing-wrapper .card button,
+        .pricing-wrapper .card .button {
+          width: 100% !important;
+          justify-content: center !important;
+          align-self: stretch !important;
+        }
+
+        /* Кнопка "order now" */
+        .order-btn-wrapper {
+          margin-top: 0;
+          width: 100%;
+        }
+
+        .order-btn-wrapper .button {
+          width: 100% !important;
+          justify-content: center !important;
+        }
+
+        button,
+        .button {
+          width: 100% !important;
+          justify-content: center !important;
+          border-radius: 25px;
+          padding: 16px 24px;
+          font-size: 14px;
+        }
+
+        /* Нижний отступ */
+        .master-grid > div:last-child {
+          height: 64px;
+        }
+      }
+      /* ======================================== */
+      /*   ГАРАНТИЯ: ОДНА КОЛОНКА ДО 768px       */
+      /* ======================================== */
+      @media screen and (max-width: 767px) {
+        .phones-row {
+          grid-template-columns: 1fr !important;
+        }
+      }
+      /* ======================================== */
+      /*   SMALL MOBILE: < 380px                  */
+      /* ======================================== */
+      @media screen and (max-width: 380px) {
+        .master-grid {
+          padding: 0 20px;
+        }
+
+        h1 {
+          font-size: 36px;
+          margin-top: 40px;
+          margin-bottom: 20px;
+        }
+
+        h2 {
+          font-size: 28px;
+        }
+
+        h3 {
+          font-size: 20px;
+        }
+
+        h4 {
+          font-size: 18px;
+          margin-bottom: 24px;
+        }
+
+        p {
+          font-size: 13px;
+        }
+
+        .spacer-80 {
+          height: 40px;
+        }
+
+        .phone-item {
+          max-width: 280px;
+        }
+
+        .card {
+          padding: 16px 14px;
+        }
+
+        .card h4 {
+          font-size: 20px;
+        }
+
+        button,
+        .button {
+          padding: 14px 20px;
+          font-size: 13px;
+        }
+
+        .image-placeholder-parent {
+          margin-bottom: 24px;
+        }
+      }
+
+      /* ======================================== */
+      /*   LARGE DESKTOP: > 1600px                */
+      /* ======================================== */
+      @media screen and (min-width: 1600px) {
+        .master-grid {
+          max-width: 1800px;
+          padding: 0 5vw;
+        }
+
+        h1 {
+          font-size: 96px;
+        }
+      }
+
+      /* Accessibility */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
       }
     </style>
   </head>
   <body>
     <div class="master-grid">
-      <!-- H1: //qr-menus (columns 1-4, left aligned) -->
-      <h1 class="col-1-2" style="grid-column: 1 / -1; margin-top: 60px">
-        //qr-menus
-      </h1>
+      <!-- H1 -->
+      <h1 class="grid-full">//qr-menus</h1>
 
-      <!-- H4 description: starts at column 2, spans to column 4 -->
-      <h4 class="col-2-4 mt-40" style="margin-top: 40px">
+      <!-- H4 description -->
+      <h4 class="grid-2-4" style="margin-top: 40px">
         Custom menu design built on your existing brand or crafted from scratch.
         Editable digital menus tailored to your restaurant and available on your
         web-site with qr-code link.
       </h4>
 
-      <!-- Spacer 80px after description -->
-      <div class="col-1-2" style="grid-column: 1 / -1; margin-top: 80px"></div>
+      <!-- Spacer -->
+      <div class="spacer-80"></div>
 
-      <!-- Image: columns 1-2, text: columns 3-4 -->
-      <div class="col-1-2">
-        <div class="image-placeholder">shar-shara · visual</div>
-      </div>
-      <div class="col-3-4">
+      <!-- Image -->
+      <div class="grid-1-2 image-placeholder-parent">
+  <img 
+    src="image 88 (1).webp" 
+    alt="Shar-Shara visual" 
+    style="width: 100%; aspect-ratio: 4/3; border-radius: 30px; object-fit: cover; display: block;"
+  />
+</div>
+
+      <!-- Text -->
+      <div class="grid-3-4 text-block">
         <div style="display: flex; flex-direction: column; gap: 24px">
           <h3 style="color: #493f55">
             Shar-Shara — Seamless Digital Menu Experience
@@ -322,11 +741,11 @@
         </div>
       </div>
 
-      <!-- 80px down before benefit cards -->
-      <div style="grid-column: 1 / -1; margin-top: 80px"></div>
+      <!-- Spacer -->
+      <div class="spacer-80"></div>
 
-      <!-- Benefit cards: start at column 2, span columns 2,3,4 -->
-      <div class="col-2-4">
+      <!-- Benefit cards -->
+      <div class="grid-2-4 benefits-wrapper">
         <div class="cards-container">
           <div class="card" style="background: #e0f9f3">
             <h4>Refined motion</h4>
@@ -345,72 +764,89 @@
           <div class="card" style="background: #e0f9f3">
             <h4>Brand coherence</h4>
             <p>
-              Every pixel reflects the restaurant’s identity, translating print
+              Every pixel reflects the restaurant's identity, translating print
               elegance into a tactile digital language.
             </p>
           </div>
         </div>
       </div>
 
-      <!-- 80px down before responsive examples -->
-      <div style="grid-column: 1 / -1; margin-top: 80px"></div>
+      <!-- Spacer -->
+      <div class="spacer-80"></div>
 
-      <!-- h3 "responsive examples" aligned right: columns 3-4 (right side) -->
-      <h3 class="col-3-4" style="text-align: left">responsive examples</h3>
+      <!-- Responsive examples h3 -->
+      <h3 class="grid-1-2" style="text-align: left">responsive examples</h3>
 
-      <!-- 80px down before phones -->
-      <div style="grid-column: 1 / -1; margin-top: 80px"></div>
+      <!-- Spacer -->
+      <div class="spacer-80"></div>
 
-      <!-- 4 phone mockups: each occupies one column (1,2,3,4) -->
-      <div
-        class="col-1-2"
-        style="grid-column: 1 / -1; display: flex; gap: 20px"
-      >
-        <div class="phone-item">
-          <div class="phone-chassis">
-            <div class="phone-screen-area">
-              <!-- Replace src with real interactive menu URL -->
-              <iframe src="about:blank" title="Shar-Shara menu"></iframe>
+      <!-- Phones -->
+      <div class="grid-full phones-wrapper">
+        <div class="phones-row">
+          <div class="phone-item">
+            <div class="phone-chassis">
+              <div class="phone-screen-area">
+                <iframe
+                  src="https://nadinski.github.io/bar/"
+                  title="Shar-Shara menu"
+                  loading="lazy"
+                ></iframe>
+              </div>
             </div>
+            <span class="phone-label">Shar-Shara</span>
           </div>
-          <span class="phone-label">Shar-Shara</span>
-        </div>
-        <div class="phone-item">
-          <div class="phone-chassis">
-            <div class="phone-screen-area">
-              <iframe src="about:blank" title="Mura menu"></iframe>
+          <div class="phone-item">
+            <div class="phone-chassis">
+              <div class="phone-screen-area">
+                <iframe
+                  src="https://shar-shara.ru/menyu-qr/"
+                  title="Mura menu"
+                  loading="lazy"
+                ></iframe>
+              </div>
             </div>
+            <span class="phone-label">Mura</span>
           </div>
-          <span class="phone-label">Mura</span>
-        </div>
-        <div class="phone-item">
-          <div class="phone-chassis">
-            <div class="phone-screen-area">
-              <iframe src="about:blank" title="Noor menu"></iframe>
+          <div class="phone-item">
+            <div class="phone-chassis">
+              <div class="phone-screen-area">
+                <iframe
+                  src="https://nadinski.github.io/luna-bar-menu/"
+                  title="Noor menu"
+                  loading="lazy"
+                ></iframe>
+              </div>
             </div>
+            <span class="phone-label">Noor</span>
           </div>
-          <span class="phone-label">Noor</span>
-        </div>
-        <div class="phone-item">
-          <div class="phone-chassis">
-            <div class="phone-screen-area">
-              <iframe src="about:blank" title="Velo menu"></iframe>
+          <div class="phone-item">
+            <div class="phone-chassis">
+              <div class="phone-screen-area">
+                <iframe
+                  src="https://nadinski.github.io/banket/"
+                  title="Velo menu"
+                  loading="lazy"
+                ></iframe>
+              </div>
             </div>
+            <span class="phone-label">Velo</span>
           </div>
-          <span class="phone-label">Velo</span>
         </div>
       </div>
 
-      <!-- Order a digital menu heading: columns 2-3, left aligned -->
-      <h3 class="col-2-3" style="margin-top: 80px; line-height: 1.2">
+      <!-- Spacer -->
+      <div class="spacer-80"></div>
+
+      <!-- Order heading -->
+      <h2 class="grid-2-3" style="line-height: 1.2">
         order a DIGITAL menu<br />for your restaurant
-      </h3>
+      </h2>
 
-      <!-- 80px down before pricing cards -->
-      <div style="grid-column: 1 / -1; margin-top: 80px"></div>
+      <!-- Spacer -->
+      <div class="spacer-80"></div>
 
-      <!-- Pricing cards: start column 2, span to column 4 -->
-      <div class="col-2-4">
+      <!-- Pricing cards -->
+      <div class="grid-2-4 pricing-wrapper">
         <div class="cards-container">
           <div class="card" style="background: #fff4d4">
             <h4>SIMPLE ONLINE PDF</h4>
@@ -462,11 +898,11 @@
         </div>
       </div>
 
-      <!-- 80px down after cards -->
-      <div style="grid-column: 1 / -1; margin-top: 80px"></div>
+      <!-- Spacer -->
+      <div class="spacer-80"></div>
 
-      <!-- Order now button: strictly under card 1, which is column 2. Same width as column 2. -->
-      <div class="col-2">
+      <!-- Order now button -->
+      <div class="grid-2 order-btn-wrapper">
         <button class="button" style="width: 100%; justify-content: center">
           <svg
             class="arrow-icon-left"
@@ -484,9 +920,8 @@
         </button>
       </div>
 
-      <!-- Bottom breathing space -->
+      <!-- Bottom spacing -->
       <div style="grid-column: 1 / -1; height: 80px"></div>
     </div>
   </body>
 </html>
-
