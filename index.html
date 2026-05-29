@@ -719,6 +719,31 @@
         .master-grid > div:last-child {
           height: 64px;
         }
+        .cover-section {
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 24px !important;
+        }
+
+        .cover-photo {
+          width: 100%;
+        }
+
+        .cover-text {
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 20px !important;
+          width: 100% !important;
+        }
+
+        .cover-text h4 {
+          margin: 0 !important;
+        }
+
+        .cover-text p {
+          margin: 0 !important;
+          width: 100% !important;
+        }
       }
 
       @media screen and (max-width: 380px) {
@@ -803,19 +828,19 @@
       <h1 class="grid-full">Hello, I'm Nadia</h1>
 
       <div style="grid-column: 1 / -1; height: 60px"></div>
-
       <!-- ========== 3-COLUMN COVER ========== -->
       <div
-        class="grid-full"
+        class="grid-full cover-section"
         style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px"
       >
         <!-- Колонка 1: фото -->
-        <div style="grid-column: 1 / 2">
+        <div class="cover-photo" style="grid-column: 1 / 2">
           <div class="photo-circle">photo</div>
         </div>
 
         <!-- Колонки 2-3: подзаголовок на 2-3, текст строго в колонке 2 -->
         <div
+          class="cover-text"
           style="
             grid-column: 2 / 4;
             display: grid;
@@ -827,7 +852,7 @@
             I am an Art Director, digital strategist, and creator of thoughtful,
             human-centered visual systems.
           </h4>
-          <p style="grid-column: 1 / 2; margin-top: -200px">
+          <p style="grid-column: 1 / 2; margin: 0">
             Fluent in both languages — creative and commercial. Art direction,
             digital products, advertising, with a decade of international brand
             work and an aerospace engineering background. Open to brand
@@ -835,7 +860,6 @@
           </p>
         </div>
       </div>
-
       <div class="spacer-80"></div>
       <div class="section-divider"></div>
       <div class="spacer-80"></div>
