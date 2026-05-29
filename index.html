@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
+  <title>Nadi Borse · Art Director</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #fffbf5;
+      font-family: "Manrope", sans-serif;
+      font-weight: 400;
+      color: #493f55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    /* —— 4-COLUMN MASTER GRID (Desktop) —— */
+    .master-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 20px;
+      padding: 0 2vw;
+      margin: 0 auto;
+      position: relative;
+      width: 100%;
+    }
+
+    /* Navigation */
+    .nav-bar {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 24px;
+      padding: 24px 0;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      font-family: "Manrope", sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #493f55;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #6d3aff;
+      transition: width 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: #6d3aff;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link.active {
+      color: #6d3aff;
+    }
+
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Typography */
+    h1 {
+      font-family: "Manrope", sans-serif;
+      font-weight: 400;
+      font-size: 82px;
+      line-height: 1.05;
+      text-transform: uppercase;
+      color: #493f55;
+      letter-spacing: -0.5px;
+    }
+
+    h2 {
+      font-family: "Manrope", sans-serif;
+      font-weight: 400;
+      font-size: 50px;
+      line-height: 1.1;
+      text-transform: uppercase;
+      color: #493f55;
+    }
+
+    h3 {
+      font-family: "Manrope", sans-serif;
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 1.2;
+      text-transform: uppercase;
+      color: #493f55;
+    }
+
+    h4 {
+      font-family: "Manrope", sans-serif;
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 1.25;
+      text-transform: uppercase;
+      color: #6d3aff;
+    }
+
+    p {
+      font-family: "Manrope", sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #493f55;
+    }
+
+    /* Hero subheading */
+    .hero-role {
+      font-family: "Manrope", sans-serif;
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 1.2;
+      text-transform: uppercase;
+      color: #6d3aff;
+    }
+
+    /* Portfolio cards */
+    .portfolio-cards {
+      display: flex;
+      gap: 20px;
+      width: 100%;
+    }
+
+    .portfolio-card {
+      flex: 1;
+      border-radius: 30px;
+      padding: 28px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(73, 63, 85, 0.1);
+    }
+
+    .portfolio-card h3 {
+      font-size: 28px;
+      line-height: 1.15;
+    }
+
+    .portfolio-card .card-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #6d3aff;
+      font-weight: 600;
+    }
+
+    .portfolio-card .arrow-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #493f55;
+      margin-top: auto;
+    }
+
+    .arrow-right {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.2s ease;
+    }
+
+    .portfolio-card:hover .arrow-right {
+      transform: translateX(4px);
+    }
+
+    /* Contact links */
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Manrope", sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      color: #493f55;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .contact-link:hover {
+      color: #6d3aff;
+    }
+
+    .contact-icon {
+      width: 18px;
+      height: 18px;
+      opacity: 0.7;
+    }
+
+    /* Utility spacing */
+    .spacer-80 {
+      grid-column: 1 / -1;
+      height: 80px;
+    }
+
+    .spacer-40 {
+      grid-column: 1 / -1;
+      height: 40px;
+    }
+
+    .spacer-20 {
+      grid-column: 1 / -1;
+      height: 20px;
+    }
+
+    /* Grid placement classes */
+    .grid-full { grid-column: 1 / -1; }
+    .grid-1 { grid-column: 1 / 2; }
+    .grid-2 { grid-column: 2 / 3; }
+    .grid-3 { grid-column: 3 / 4; }
+    .grid-4 { grid-column: 4 / 5; }
+    .grid-1-2 { grid-column: 1 / 3; }
+    .grid-2-4 { grid-column: 2 / 5; }
+    .grid-3-4 { grid-column: 3 / 5; }
+    .grid-2-3 { grid-column: 2 / 4; }
+
+    /* Divider */
+    .divider {
+      grid-column: 1 / -1;
+      height: 1px;
+      background: #e7e1d8;
+      width: 100%;
+    }
+
+    /* ======================================== */
+    /*   TABLET: 768px – 1024px (8 columns)     */
+    /* ======================================== */
+    @media screen and (max-width: 1024px) {
+      .master-grid {
+        grid-template-columns: repeat(8, 1fr);
+        column-gap: 16px;
+        padding: 0 3vw;
+      }
+
+      h1 { font-size: 52px; letter-spacing: -0.3px; }
+      h2 { font-size: 36px; line-height: 1.1; }
+      h3 { font-size: 24px; line-height: 1.25; }
+      h4 { font-size: 22px; line-height: 1.25; }
+      .hero-role { font-size: 22px; }
+      p { font-size: 13px; line-height: 1.65; }
+
+      .spacer-80 { grid-column: 1 / -1 !important; }
+      .spacer-40 { grid-column: 1 / -1 !important; }
+      .spacer-20 { grid-column: 1 / -1 !important; }
+
+      h1.grid-full { grid-column: 1 / -1 !important; }
+      .grid-1 { grid-column: 1 / 3; }
+      .grid-2 { grid-column: 3 / 5; }
+      .grid-3 { grid-column: 5 / 7; }
+      .grid-4 { grid-column: 7 / 9; }
+      .grid-1-2 { grid-column: 1 / 5; }
+      .grid-2-4 { grid-column: 3 / 9; }
+      .grid-3-4 { grid-column: 5 / 9; }
+      .grid-2-3 { grid-column: 3 / 7; }
+
+      .portfolio-cards { gap: 16px; }
+      .portfolio-card { padding: 22px 18px; }
+      .portfolio-card h3 { font-size: 22px; }
+    }
+
+    /* ======================================== */
+    /*   MOBILE: до 767px — ВСЁ В КОЛОНКУ      */
+    /* ======================================== */
+    @media screen and (max-width: 767px) {
+      .master-grid {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        padding: 0 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .nav-bar {
+        gap: 16px;
+        padding: 20px 0;
+      }
+
+      .nav-link { font-size: 11px; }
+
+      .grid-full, .grid-1, .grid-2, .grid-3, .grid-4,
+      .grid-1-2, .grid-2-4, .grid-3-4, .grid-2-3,
+      .spacer-80, .spacer-40, .spacer-20,
+      h1, h2, h3, h4 {
+        grid-column: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      h1 { font-size: 42px; line-height: 1.1; letter-spacing: -0.5px; }
+      h2 { font-size: 32px; line-height: 1.15; }
+      h3 { font-size: 22px; line-height: 1.25; }
+      h4 { font-size: 20px; line-height: 1.3; margin-bottom: 0; }
+      .hero-role { font-size: 18px; }
+      p { font-size: 14px; line-height: 1.65; }
+
+      .spacer-80 { height: 48px; width: 100%; }
+      .spacer-40 { height: 32px; width: 100%; }
+      .spacer-20 { height: 16px; width: 100%; }
+
+      .portfolio-cards {
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+      }
+      .portfolio-card { padding: 24px 20px; border-radius: 24px; }
+      .portfolio-card h3 { font-size: 24px; }
+
+      .contact-links { gap: 10px; }
+
+      .master-grid > div:last-child { height: 64px; }
+    }
+
+    /* ======================================== */
+    /*   SMALL MOBILE: < 380px                  */
+    /* ======================================== */
+    @media screen and (max-width: 380px) {
+      .master-grid { padding: 0 20px; }
+
+      h1 { font-size: 36px; }
+      h2 { font-size: 28px; }
+      h3 { font-size: 20px; }
+      h4 { font-size: 18px; }
+      .hero-role { font-size: 16px; }
+      p { font-size: 13px; }
+
+      .spacer-80 { height: 40px; }
+      .spacer-40 { height: 24px; }
+
+      .portfolio-card h3 { font-size: 20px; }
+    }
+
+    /* ======================================== */
+    /*   LARGE DESKTOP: > 1600px                */
+    /* ======================================== */
+    @media screen and (min-width: 1600px) {
+      .master-grid {
+        max-width: 1800px;
+        padding: 0 5vw;
+      }
+      h1 { font-size: 96px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="master-grid">
+        <nav class="nav-bar">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="qr-menus.html" class="nav-link">QR Menus</a>
+      <a href="websites.html" class="nav-link">Websites</a>
+      <a href="https://www.behance.net/8373a5c4" target="_blank" rel="noopener" class="nav-link">Behance ↗</a>
+    </nav>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="nav-bar">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="qr-menus.html" class="nav-link">QR Menus</a>
+      <a href="websites.html" class="nav-link">Websites</a>
+      <a href="https://www.behance.net/8373a5c4" target="_blank" rel="noopener" class="nav-link">Behance ↗</a>
+    </nav>
+
+    <!-- Spacer -->
+    <div class="spacer-80"></div>
+
+    <!-- H1: Name -->
+    <h1 class="grid-full">Nadi Borse</h1>
+
+    <!-- Spacer -->
+    <div class="spacer-20"></div>
+
+    <!-- Role (cols 1-2) -->
+    <div class="grid-1-2">
+      <p class="hero-role">art director<br>for your project</p>
+    </div>
+
+    <!-- Intro text (cols 3-4) -->
+    <div class="grid-3-4">
+      <p>
+        I have an engineering background (mag. aerospace engineering) and 15 years of diverse experience in marketing and advertising.
+      </p>
+    </div>
+
+    <!-- Spacer -->
+    <div class="spacer-80"></div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Spacer -->
+    <div class="spacer-40"></div>
+
+    <!-- Section heading -->
+    <h3 class="grid-1-2">here are examples<br>of my work</h3>
+
+    <!-- Spacer -->
+    <div class="spacer-40"></div>
+
+    <!-- Portfolio cards (cols 1-4, full width) -->
+    <div class="grid-full">
+      <div class="portfolio-cards">
+
+        <!-- QR Menus -->
+        <a href="qr-menus.html" class="portfolio-card" style="background: #e0f9f3;">
+          <span class="card-tag">01</span>
+          <h3>QR<br>Menus</h3>
+          <p>Custom digital menus tailored to your restaurant.</p>
+          <span class="arrow-link">
+            view project
+            <svg class="arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </span>
+        </a>
+
+        <!-- Websites -->
+        <a href="websites.html" class="portfolio-card" style="background: #faeaf2;">
+          <span class="card-tag">02</span>
+          <h3>Websites</h3>
+          <p>Strategic fusion of aesthetics and functionality.</p>
+          <span class="arrow-link">
+            view project
+            <svg class="arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </span>
+        </a>
+
+        <!-- Branding / Behance -->
+        <a href="https://www.behance.net/8373a5c4" target="_blank" rel="noopener" class="portfolio-card" style="background: #fff4d4;">
+          <span class="card-tag">03</span>
+          <h3>Branding</h3>
+          <p>Visual identities on Behance.</p>
+          <span class="arrow-link">
+            view on behance ↗
+            <svg class="arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Spacer -->
+    <div class="spacer-80"></div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Spacer -->
+    <div class="spacer-40"></div>
+
+    <!-- Contact heading -->
+    <h3 class="grid-1-2">get in touch</h3>
+
+    <!-- Spacer -->
+    <div class="spacer-20"></div>
+
+    <!-- Contact links (cols 1-2) -->
+    <div class="grid-1-2">
+      <div class="contact-links">
+        <!-- Email -->
+        <a href="mailto:nadyaiam@gmail.com" class="contact-link">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/>
+          </svg>
+          nadyaiam@gmail.com
+        </a>
+
+        <!-- Phone -->
+        <a href="tel:+79099737333" class="contact-link">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          +7 909 973-73-33
+        </a>
+
+        <!-- Local phone -->
+        <a href="tel:040773677" class="contact-link">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          040 773 677
+        </a>
+
+        <!-- Telegram -->
+        <a href="https://t.me/nadinski" target="_blank" rel="noopener" class="contact-link">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.5 2.5L2.5 10.5L9.5 13.5L21.5 2.5Z"/><path d="M9.5 13.5L12.5 20.5L21.5 2.5"/>
+          </svg>
+          t.me/nadinski
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/79099737333" target="_blank" rel="noopener" class="contact-link">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17.5 14.5C16 13.5 15 13 13.5 13.5C12 14 10.5 15 9 13.5C7.5 12 8.5 10.5 8 9C7.5 7.5 7 6.5 6 5C5 3.5 3.5 4 2.5 5C1.5 6 1.5 8 2.5 9.5C3.5 11 6 14.5 9 17C12 19.5 15.5 21 17 21.5C18.5 22 20 21.5 21 20.5C22 19.5 21 18 19.5 17C18 16 18.5 15.5 17.5 14.5Z"/>
+          </svg>
+          WhatsApp
+        </a>
+
+        <!-- Behance -->
+        <a href="https://www.behance.net/8373a5c4" target="_blank" rel="noopener" class="contact-link">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="4"/>
+            <path d="M8 8h4M8 12h5M8 16h3M15 8h1M15 12h1"/>
+          </svg>
+          Behance
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom breathing space -->
+    <div style="grid-column: 1 / -1; height: 80px;"></div>
+
+  </div>
+</body>
+</html>
