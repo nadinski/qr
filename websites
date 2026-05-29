@@ -565,10 +565,66 @@
         transition-duration: 0.01ms !important;
       }
     }
+    /* Navigation */
+    .nav-bar {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 24px;
+      padding: 24px 0;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      font-family: "Manrope", sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #493f55;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #6d3aff;
+      transition: width 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: #6d3aff;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link.active {
+      color: #6d3aff;
+    }
+
+    .nav-link.active::after {
+      width: 100%;
+    }
   </style>
 </head>
 <body>
   <div class="master-grid">
+    <nav class="nav-bar">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="qr-menus.html" class="nav-link">QR Menus</a>
+      <a href="websites.html" class="nav-link active">Websites</a>
+      <a href="https://www.behance.net/8373a5c4" target="_blank" rel="noopener" class="nav-link">Behance ↗</a>
+    </nav>
 
     <!-- H1 -->
     <h1 class="grid-full">Hello, I'm Nadia</h1>
