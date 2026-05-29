@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover"
+    />
+    <title>Nadi Borse · Art Director & Digital Strategist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #fffbf5;
+        font-family: "Manrope", sans-serif;
+        font-weight: 400;
+        color: #493f55;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+        width: 100%;
+      }
+
+      .master-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 20px;
+        padding: 0 2vw;
+        margin: 0 auto;
+        position: relative;
+        width: 100%;
+      }
+
+      /* Typography */
+      h1 {
+        font-family: "Manrope", sans-serif;
+        font-weight: 400;
+        font-size: 82px;
+        line-height: 1.05;
+        text-transform: uppercase;
+        color: #493f55;
+        letter-spacing: -0.5px;
+        margin-top: 60px;
+      }
+
+      h2 {
+        font-family: "Manrope", sans-serif;
+        font-weight: 400;
+        font-size: 50px;
+        line-height: 1.1;
+        text-transform: uppercase;
+        color: #493f55;
+      }
+
+      h3 {
+        font-family: "Manrope", sans-serif;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 1.2;
+        text-transform: uppercase;
+        color: #493f55;
+      }
+
+      h4 {
+        font-family: "Manrope", sans-serif;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 1.25;
+        text-transform: uppercase;
+        color: #6d3aff;
+      }
+
+      p {
+        font-family: "Manrope", sans-serif;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 1.7;
+        color: #493f55;
+      }
+
+      button,
+      .button {
+        background-color: #ff914d;
+        border: none;
+        color: #fffbf5;
+        font-family: "Manrope", sans-serif;
+        font-weight: 600;
+        font-size: 13px;
+        text-transform: uppercase;
+        border-radius: 20px;
+        padding: 14px 28px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        letter-spacing: 0.4px;
+        transition: background 0.25s ease, transform 0.2s ease;
+        text-decoration: none;
+        white-space: nowrap;
+        line-height: 1;
+        min-height: 48px;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      }
+
+      button:hover,
+      .button:hover {
+        background-color: #e07b3c;
+        transform: translateY(-2px);
+      }
+
+      button:active,
+      .button:active {
+        transform: translateY(0);
+      }
+
+      .arrow-icon-left {
+        display: inline-block;
+        transform: rotate(180deg);
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+      }
+
+      /* Photo circle */
+      .photo-circle {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        background: #f3ede5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background-image: radial-gradient(
+          circle at 30% 30%,
+          #e5d9cc 1px,
+          transparent 1px
+        );
+        background-size: 16px 16px;
+        color: #b7aa9a;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .photo-circle img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Cards */
+      .cards-container {
+        display: flex;
+        gap: 20px;
+        width: 100%;
+      }
+
+      .card {
+        flex: 1;
+        border-radius: 24px;
+        padding: 20px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .card h4 {
+        font-size: 30px;
+        color: #6d3aff;
+      }
+
+      .card p {
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      /* Portfolio tile cards */
+      .portfolio-tiles {
+        display: flex;
+        gap: 20px;
+        width: 100%;
+      }
+
+      .tile-card {
+        flex: 1;
+        border-radius: 30px;
+        padding: 28px 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        text-decoration: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+
+      .tile-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(73, 63, 85, 0.1);
+      }
+
+      .tile-card h3 {
+        font-size: 26px;
+        line-height: 1.15;
+      }
+
+      .tile-card .tile-tag {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #6d3aff;
+        font-weight: 600;
+      }
+
+      .tile-card .tile-arrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #493f55;
+        margin-top: auto;
+      }
+
+      .tile-arrow svg {
+        width: 14px;
+        height: 14px;
+        transition: transform 0.2s ease;
+      }
+
+      .tile-card:hover .tile-arrow svg {
+        transform: translateX(4px);
+      }
+
+      /* Navigation */
+      .nav-bar {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 24px;
+        padding: 24px 0;
+        flex-wrap: wrap;
+      }
+
+      .nav-link {
+        font-family: "Manrope", sans-serif;
+        font-weight: 600;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        color: #493f55;
+        text-decoration: none;
+        transition: color 0.2s ease;
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: #6d3aff;
+        transition: width 0.25s ease;
+      }
+
+      .nav-link:hover {
+        color: #6d3aff;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .nav-link.active {
+        color: #6d3aff;
+      }
+
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+      /* Footer / Contact */
+      .site-footer {
+        grid-column: 1 / -1;
+        border-top: 1px solid #e7e1d8;
+        padding-top: 40px;
+        margin-top: 0;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-column: 1 / -1;
+      }
+
+      .footer-heading {
+        grid-column: 1 / 2;
+        margin-bottom: 20px;
+      }
+
+      .footer-links {
+        grid-column: 2 / 5;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .footer-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: "Manrope", sans-serif;
+        font-weight: 600;
+        font-size: 13px;
+        text-transform: uppercase;
+        color: #493f55;
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .footer-link:hover {
+        color: #6d3aff;
+      }
+
+      .footer-icon {
+        width: 18px;
+        height: 18px;
+        opacity: 0.7;
+      }
+
+      /* Utility spacing */
+      .spacer-80 {
+        grid-column: 1 / -1;
+        height: 80px;
+      }
+
+      .spacer-40 {
+        grid-column: 1 / -1;
+        height: 40px;
+      }
+
+      .spacer-20 {
+        grid-column: 1 / -1;
+        height: 20px;
+      }
+
+      /* Grid classes */
+      .grid-full {
+        grid-column: 1 / -1;
+      }
+      .grid-1 {
+        grid-column: 1 / 2;
+      }
+      .grid-2 {
+        grid-column: 2 / 3;
+      }
+      .grid-3 {
+        grid-column: 3 / 4;
+      }
+      .grid-4 {
+        grid-column: 4 / 5;
+      }
+      .grid-1-2 {
+        grid-column: 1 / 3;
+      }
+      .grid-2-4 {
+        grid-column: 2 / 5;
+      }
+      .grid-3-4 {
+        grid-column: 3 / 5;
+      }
+      .grid-2-3 {
+        grid-column: 2 / 4;
+      }
+
+      /* Subgrid for mission/values */
+      .subgrid-row {
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-column: 1 / -1;
+        gap: 0;
+      }
+
+      .mission-col {
+        grid-column: 1 / 2;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .values-col {
+        grid-column: 3 / 5;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .values-inner-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 20px;
+      }
+
+      .value-block {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .mission-col .button-wrapper {
+        margin-top: auto;
+      }
+
+      .section-divider {
+        grid-column: 1 / -1;
+        height: 1px;
+        background: #e7e1d8;
+        width: 100%;
+      }
+
+      /* ======================================== */
+      /*   TABLET                                   */
+      /* ======================================== */
+      @media screen and (max-width: 1024px) {
+        .master-grid {
+          grid-template-columns: repeat(8, 1fr);
+          column-gap: 16px;
+          padding: 0 3vw;
+        }
+
+        h1 {
+          font-size: 52px;
+          letter-spacing: -0.3px;
+        }
+        h2 {
+          font-size: 36px;
+          line-height: 1.1;
+        }
+        h3 {
+          font-size: 24px;
+          line-height: 1.25;
+        }
+        h4 {
+          font-size: 22px;
+          line-height: 1.25;
+        }
+        p {
+          font-size: 13px;
+          line-height: 1.65;
+        }
+        button,
+        .button {
+          font-size: 12px;
+          padding: 13px 24px;
+          border-radius: 18px;
+        }
+        .card {
+          padding: 16px 14px;
+          gap: 16px;
+          border-radius: 20px;
+        }
+        .card h4 {
+          font-size: 20px;
+        }
+        .card p {
+          font-size: 12px;
+        }
+        .tile-card {
+          padding: 22px 18px;
+        }
+        .tile-card h3 {
+          font-size: 20px;
+        }
+
+        .spacer-80,
+        .spacer-40,
+        .spacer-20 {
+          grid-column: 1 / -1 !important;
+        }
+
+        h1.grid-full {
+          grid-column: 1 / -1 !important;
+        }
+        .grid-1 {
+          grid-column: 1 / 3;
+        }
+        .grid-2 {
+          grid-column: 3 / 5;
+        }
+        .grid-3 {
+          grid-column: 5 / 7;
+        }
+        .grid-4 {
+          grid-column: 7 / 9;
+        }
+        .grid-1-2 {
+          grid-column: 1 / 5;
+        }
+        .grid-2-4 {
+          grid-column: 3 / 9;
+        }
+        .grid-3-4 {
+          grid-column: 5 / 9;
+        }
+        .grid-2-3 {
+          grid-column: 3 / 7;
+        }
+
+        .photo-circle {
+          max-width: 200px;
+        }
+
+        .subgrid-row {
+          grid-template-columns: subgrid;
+        }
+        .mission-col {
+          grid-column: 1 / 3;
+        }
+        .values-col {
+          grid-column: 5 / 9;
+        }
+
+        .values-inner-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+        }
+        .portfolio-tiles {
+          gap: 16px;
+        }
+
+        .footer-heading {
+          grid-column: 1 / 3;
+        }
+        .footer-links {
+          grid-column: 3 / 9;
+        }
+      }
+
+      /* ======================================== */
+      /*   MOBILE                                   */
+      /* ======================================== */
+      @media screen and (max-width: 767px) {
+        .master-grid {
+          grid-template-columns: 1fr;
+          column-gap: 0;
+          padding: 0 24px;
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+        }
+
+        .grid-full,
+        .grid-1,
+        .grid-2,
+        .grid-3,
+        .grid-4,
+        .grid-1-2,
+        .grid-2-4,
+        .grid-3-4,
+        .grid-2-3,
+        .spacer-80,
+        .spacer-40,
+        .spacer-20,
+        h1,
+        h2,
+        h3,
+        h4 {
+          grid-column: auto !important;
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+
+        h1 {
+          font-size: 42px;
+          line-height: 1.1;
+          letter-spacing: -0.5px;
+          margin-top: 48px;
+          margin-bottom: 24px;
+        }
+        h2 {
+          font-size: 32px;
+          line-height: 1.15;
+          text-align: left;
+          margin: 0;
+        }
+        h2 br {
+          display: none;
+        }
+        h3 {
+          font-size: 22px;
+          line-height: 1.25;
+          text-align: left;
+          margin: 0;
+        }
+        h4 {
+          font-size: 20px;
+          line-height: 1.3;
+          text-align: left;
+          margin: 0 0 32px 0;
+        }
+        p {
+          font-size: 14px;
+          line-height: 1.65;
+        }
+
+        .spacer-80 {
+          height: 48px;
+          width: 100%;
+        }
+        .spacer-40 {
+          height: 32px;
+          width: 100%;
+        }
+        .spacer-20 {
+          height: 16px;
+          width: 100%;
+        }
+
+        .cards-container {
+          flex-direction: column;
+          gap: 16px;
+          width: 100%;
+        }
+        .card {
+          flex: none;
+          width: 100%;
+          padding: 20px 16px;
+          gap: 14px;
+          border-radius: 20px;
+        }
+        .card h4 {
+          font-size: 22px;
+        }
+        .card p {
+          font-size: 14px;
+        }
+
+        .portfolio-tiles {
+          flex-direction: column;
+          gap: 16px;
+          width: 100%;
+        }
+        .tile-card {
+          padding: 24px 20px;
+          border-radius: 24px;
+        }
+        .tile-card h3 {
+          font-size: 22px;
+        }
+
+        .photo-circle {
+          max-width: 180px;
+          margin-bottom: 24px;
+        }
+
+        .subgrid-row {
+          display: flex;
+          flex-direction: column;
+          gap: 40px;
+        }
+        .mission-col,
+        .values-col {
+          width: 100%;
+        }
+        .values-inner-grid {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+
+        button,
+        .button {
+          width: 100% !important;
+          justify-content: center !important;
+          border-radius: 25px;
+          padding: 16px 24px;
+          font-size: 14px;
+        }
+
+        .button-wrapper {
+          width: 100%;
+          margin-top: 24px;
+        }
+
+        .nav-bar {
+          gap: 16px;
+          padding: 20px 0;
+        }
+        .nav-link {
+          font-size: 11px;
+        }
+
+        .site-footer {
+          padding-top: 32px;
+        }
+        .footer-grid {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+        .footer-links {
+          gap: 10px;
+        }
+
+        .master-grid > div:last-child {
+          height: 64px;
+        }
+      }
+
+      @media screen and (max-width: 380px) {
+        .master-grid {
+          padding: 0 20px;
+        }
+        h1 {
+          font-size: 36px;
+          margin-top: 40px;
+        }
+        h2 {
+          font-size: 28px;
+        }
+        h3 {
+          font-size: 20px;
+        }
+        h4 {
+          font-size: 18px;
+          margin-bottom: 24px;
+        }
+        p {
+          font-size: 13px;
+        }
+        .spacer-80 {
+          height: 40px;
+        }
+        .spacer-40 {
+          height: 24px;
+        }
+        .card {
+          padding: 16px 14px;
+        }
+        .card h4 {
+          font-size: 20px;
+        }
+        button,
+        .button {
+          padding: 14px 20px;
+          font-size: 13px;
+        }
+        .photo-circle {
+          max-width: 150px;
+        }
+      }
+
+      @media screen and (min-width: 1600px) {
+        .master-grid {
+          max-width: 1800px;
+          padding: 0 5vw;
+        }
+        h1 {
+          font-size: 96px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="master-grid">
+      <!-- ========== NAVIGATION ========== -->
+      <nav class="nav-bar">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="qr-menus.html" class="nav-link">QR Menus</a>
+        <a href="websites.html" class="nav-link">Websites</a>
+        <a
+          href="https://www.behance.net/8373a5c4"
+          target="_blank"
+          rel="noopener"
+          class="nav-link"
+          >Behance ↗</a
+        >
+      </nav>
+
+      <!-- ========== H1 ========== -->
+      <h1 class="grid-full">Hello, I'm Nadia</h1>
+
+      <div style="grid-column: 1 / -1; height: 60px"></div>
+
+      <!-- ========== 3-COLUMN COVER ========== -->
+      <div
+        class="grid-full"
+        style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px"
+      >
+        <!-- Колонка 1: фото -->
+        <div style="grid-column: 1 / 2">
+          <div class="photo-circle">photo</div>
+        </div>
+
+        <!-- Колонки 2-3: подзаголовок на 2-3, текст строго в колонке 2 -->
+        <div
+          style="
+            grid-column: 2 / 4;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+          "
+        >
+          <h4 style="grid-column: 1 / -1; margin: 0; line-height: 1.15">
+            I am an Art Director, digital strategist, and creator of thoughtful,
+            human-centered visual systems.
+          </h4>
+          <p style="grid-column: 1 / 2; margin-top: -200px">
+            Fluent in both languages — creative and commercial. Art direction,
+            digital products, advertising, with a decade of international brand
+            work and an aerospace engineering background. Open to brand
+            campaigns, film, and digital products.
+          </p>
+        </div>
+      </div>
+
+      <div class="spacer-80"></div>
+      <div class="section-divider"></div>
+      <div class="spacer-80"></div>
+      <!-- ========== PORTFOLIO TILES ========== -->
+      <h3 class="grid-1-2">selected projects</h3>
+
+      <div class="spacer-40"></div>
+
+      <div class="grid-full">
+        <div class="portfolio-tiles">
+          <a href="qr-menus.html" class="tile-card" style="background: #e0f9f3">
+            <span class="tile-tag">01</span>
+            <h3>QR<br />Menus</h3>
+            <p>Digital menus tailored to your restaurant brand.</p>
+            <span class="tile-arrow">
+              explore
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </span>
+          </a>
+          <a href="websites.html" class="tile-card" style="background: #faeaf2">
+            <span class="tile-tag">02</span>
+            <h3>Websites</h3>
+            <p>Strategic fusion of aesthetics and functionality.</p>
+            <span class="tile-arrow">
+              explore
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </span>
+          </a>
+          <a
+            href="https://www.behance.net/8373a5c4"
+            target="_blank"
+            rel="noopener"
+            class="tile-card"
+            style="background: #fff4d4"
+          >
+            <span class="tile-tag">03</span>
+            <h3>Branding</h3>
+            <p>Visual identity systems on Behance.</p>
+            <span class="tile-arrow">
+              behance ↗
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="spacer-80"></div>
+      <div class="section-divider"></div>
+      <div class="spacer-80"></div>
+
+      <!-- ========== WHAT I DO ========== -->
+      <h2 class="grid-1-2">what do i do <br />for your project?</h2>
+
+      <div class="spacer-40"></div>
+
+      <div class="grid-2-4">
+        <div class="cards-container">
+          <div class="card" style="background: #e0f9f3">
+            <h4>visual identity</h4>
+            <p>
+              That express a brand's inner architecture, not just its surface
+              aesthetics.
+            </p>
+          </div>
+          <div class="card" style="background: #faeaf2">
+            <h4>websites & digital</h4>
+            <p>Where clarity, emotion, and functionality support each other.</p>
+          </div>
+          <div class="card" style="background: #e0f9f3">
+            <h4>conceptual direction</h4>
+            <p>For photoshoots, campaigns, and creative teams.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="grid-column: 1 / -1; height: 20px"></div>
+
+      <div class="grid-3-4">
+        <div class="cards-container">
+          <div class="card" style="background: #fff4d4">
+            <h4>product communication</h4>
+            <p>
+              From positioning to narrative to the logic behind every
+              touchpoint.
+            </p>
+          </div>
+          <div
+            class="card"
+            style="
+              background: #faeaf2;
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
+            "
+          >
+            <h4>integrate technology</h4>
+            <p>
+              Ensuring tools (CRM, automation, bots, interfaces) serve the brand
+              rather than complicate it.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="spacer-80"></div>
+      <div class="section-divider"></div>
+      <div class="spacer-80"></div>
+
+      <!-- ========== MISSION & VALUES ========== -->
+      <div class="subgrid-row">
+        <div class="mission-col">
+          <h2>My Mission</h2>
+          <div style="height: 20px"></div>
+          <p style="margin-bottom: 12px">
+            To bring clarity, elegance, and emotional intelligence into the
+            digital space.
+          </p>
+          <p style="margin-bottom: 12px">
+            To build systems and visuals that feel alive, intuitive, and aligned
+            with the true nature of the people and businesses behind them.
+          </p>
+          <p style="margin-bottom: 24px">
+            To show that technology can amplify human vision — not replace it.
+          </p>
+          <div class="button-wrapper">
+            <a
+              href="mailto:nadyaiam@gmail.com"
+              class="button"
+              style="width: auto"
+            >
+              <svg
+                class="arrow-icon-left"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+              let's collaborate
+            </a>
+          </div>
+        </div>
+
+        <div class="values-col">
+          <h2 style="margin-bottom: 30px">My Values</h2>
+          <div class="values-inner-grid">
+            <div class="value-block">
+              <h4>Depth</h4>
+              <p>
+                Everything meaningful grows from understanding. I study the
+                client's world until it becomes my own — their intentions, their
+                audience, their patterns.
+              </p>
+            </div>
+            <div></div>
+            <div class="value-block">
+              <h4>Beauty</h4>
+              <p>
+                Beauty is not decoration — it is communication. It creates
+                trust, emotion, and memory.
+              </p>
+            </div>
+            <div class="value-block">
+              <h4>Integrity</h4>
+              <p>
+                Aesthetics matter, but honesty matters more. I design solutions
+                that support the business long-term, not just decorate it.
+              </p>
+            </div>
+            <div class="value-block">
+              <h4>Humanity</h4>
+              <p>No matter how advanced the tool, I design for humans first.</p>
+            </div>
+            <div class="value-block">
+              <h4>Clarity</h4>
+              <p>
+                Confusion kills trust. I turn complexity into structure, chaos
+                into direction, ideas into systems.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spacer-80"></div>
+
+      <!-- ========== FOOTER / CONTACTS ========== -->
+      <footer class="site-footer">
+        <div class="footer-grid">
+          <h3 class="footer-heading">get in touch</h3>
+          <div class="footer-links">
+            <a href="mailto:nadyaiam@gmail.com" class="footer-link">
+              <svg
+                class="footer-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="M22 4L12 13 2 4" />
+              </svg>
+              nadyaiam@gmail.com
+            </a>
+            <a href="tel:+79099737333" class="footer-link">
+              <svg
+                class="footer-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"
+                />
+              </svg>
+              +7 909 973-73-33
+            </a>
+            <a href="tel:040773677" class="footer-link">
+              <svg
+                class="footer-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"
+                />
+              </svg>
+              040 773 677
+            </a>
+            <a
+              href="https://t.me/nadinski"
+              target="_blank"
+              rel="noopener"
+              class="footer-link"
+            >
+              <svg
+                class="footer-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21.5 2.5L2.5 10.5L9.5 13.5L21.5 2.5Z" />
+                <path d="M9.5 13.5L12.5 20.5L21.5 2.5" />
+              </svg>
+              t.me/nadinski
+            </a>
+            <a
+              href="https://wa.me/79099737333"
+              target="_blank"
+              rel="noopener"
+              class="footer-link"
+            >
+              <svg
+                class="footer-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M17.5 14.5C16 13.5 15 13 13.5 13.5C12 14 10.5 15 9 13.5C7.5 12 8.5 10.5 8 9C7.5 7.5 7 6.5 6 5C5 3.5 3.5 4 2.5 5C1.5 6 1.5 8 2.5 9.5C3.5 11 6 14.5 9 17C12 19.5 15.5 21 17 21.5C18.5 22 20 21.5 21 20.5C22 19.5 21 18 19.5 17C18 16 18.5 15.5 17.5 14.5Z"
+                />
+              </svg>
+              WhatsApp
+            </a>
+            <a
+              href="https://www.behance.net/8373a5c4"
+              target="_blank"
+              rel="noopener"
+              class="footer-link"
+            >
+              <svg
+                class="footer-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="4" />
+                <path d="M8 8h4M8 12h5M8 16h3M15 8h1M15 12h1" />
+              </svg>
+              Behance
+            </a>
+          </div>
+        </div>
+      </footer>
+
+      <div style="grid-column: 1 / -1; height: 60px"></div>
+    </div>
+  </body>
+</html>
